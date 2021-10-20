@@ -1,5 +1,17 @@
 #!/bin/python3.8
 
+# Take time values from a file and sum them up
+# Example: you have a file that has some login time info
+
+#   john logged in for 3:34:56
+#   john logged in for 2:45:43
+#   john logged in for 1:23:12
+#   john logged in for 0:13:36
+
+# The script takes them and prints the sum into another file 
+# as well as to the terminal for 10 sec, you can delete or comment out the write to a
+# separate file part of the code if not necessary 
+
 import re
 import datetime
 import time
@@ -23,15 +35,10 @@ for i in match:
     d = datetime.timedelta(hours=int(h), minutes=int(m), seconds=int(s))
     sum += d
 
-# Print sum, add it to a file and close both files
-# Sleep for 10sec so if running from file the Shell will show the result before closing
-# You can delete or comment out the write to a
-# separate file part of the code as well if not necessary 
-
 print(str(sum))
 new_time_file = open(new_path, 'w')
 new_time_file.write(str(sum))
 time_file.close()
 new_time_file.close()
 
-time.sleep(10)
+time.sleep(10)             # Change this if you want the terminal to show the output for less time
