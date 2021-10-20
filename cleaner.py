@@ -2,12 +2,16 @@
 
 import os
 
-# File path of the cookie file backup copied to the Document folder and actual cookie file path for Chrome in Linux
+# First clean all unwanted cookies manually (I know a bit of a pain), after go to 
+# ~/.config/google-chrome/Default/Cookies and copy the file to your Documents folder.
+# Now whenever you run this code it'll replace the cookies file in chrome with the clean one
 
-path = '/home/user/Documents/Cookies_Chrome'
-new_path = '/home/user/.config/google-chrome/Default/Cookies'
+# replace '<user>' with your username
 
-# Open the cookie backup file, read and write to cookie file in chrome
+path = '/home/<user>/Documents/Cookies_Chrome'
+new_path = '/home/<user>/.config/google-chrome/Default/Cookies'
+
+# Open the cookie backup file, read it and write it to the cookie file in chrome
 
 cookie_file = open(path, 'rb')
 data = cookie_file.read()
